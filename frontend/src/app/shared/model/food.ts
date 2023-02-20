@@ -1,4 +1,4 @@
-export class Food{
+export class Food {
     id!: string;
     name!: string;
     price!: number;
@@ -8,6 +8,4 @@ export class Food{
     imageUrl!: string;
     origins!: string[];
     cookTime!: string;
-    
-    
 }
