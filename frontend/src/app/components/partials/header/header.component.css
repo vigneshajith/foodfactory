@@ -1,7 +1,6 @@
 header{
-  padding: .5em 0;
-  width: 100vw;
-  max-width: 2000px;
+  /* padding: .5em 0;
+  max-width: 2000px; */
   border-bottom: .5px solid rgb(199, 196, 196);
 }
 ul{
@@ -16,6 +15,7 @@ ul{
   justify-content: space-between;
   text-align: center;
   align-items: center;
+  max-width: 2000px;
 }
 nav .nav-ul{
   display: flex;
@@ -26,7 +26,7 @@ nav .nav-ul{
   margin-left: 1.5rem;
 }
 .nav-link{
-  padding: 0.25em 0.75em;
+  padding: 0.5em 0.75em;
 }
 .nav-link:hover{
   border-radius: 50px;
@@ -48,15 +48,25 @@ nav .nav-ul{
 .menu{
   display: none;
   position: absolute;
-  padding: 0.25em;
-  top: 33px;
-  left: -5px;
-  background-color: rgb(255, 252, 252);
+  padding: 0.6em;
+  top: 40px;
+  left: -2px;
+  background-color: rgb(231, 227, 227);
+  border-radius: 20px;
+  z-index: 2;
 
+}
+.dropdown{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dropdown svg{
+  margin-left: 2px;
 }
 .badge{
   background-color:rgb(211, 19, 19) ;
-  color: white;
+  color: rgb(255, 255, 255);
   padding: 0em 0.4em ;
   margin-left: 2px;
   border-radius: 50px;
