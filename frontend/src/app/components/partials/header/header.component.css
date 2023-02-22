@@ -1,7 +1,8 @@
 header{
   padding: .5em 0;
+  width: 100vw;
+  max-width: 2000px;
   border-bottom: .5px solid rgb(199, 196, 196);
-  width: 100%;
 }
 ul{
   list-style: none;
