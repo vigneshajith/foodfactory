@@ -4,12 +4,17 @@
   box-sizing: border-box;
 }
 
+body{
+  display: grid;
+  place-content: center;
+}
 img{
   max-width: 100%;
 }
 
 .container{
   margin: 0 10%;
+  max-width: 2000px;
 }
 
 :root{
