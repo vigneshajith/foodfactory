@@ -7,14 +7,9 @@
 img{
   max-width: 100%;
 }
-body{
-  display: grid;
-  place-items: center;
-}
+
 .container{
-  margin: 0 5%;
-  max-width: 2500px;
-  width: 100%;
+  margin: 0 10%;
 }
 
 :root{
