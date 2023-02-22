@@ -1,0 +1,10 @@
+<div  *ngIf="Item"> 
+<div class="flex" *ngFor="let item of Item">
+    <img [src]="item.imageUrl" [alt]="item.name">
+    <div class="itemdetails">
+        <h3>{{item.name}}</h3>
+        <star-rating [value]="item.stars" [totalstars]="5" checkedcolor="red" uncheckedcolor="black" size="24px" [readonly]="false"
+            ></star-rating>
+    </div>
+</div>
+</div>
