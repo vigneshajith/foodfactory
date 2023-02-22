@@ -9,7 +9,8 @@ img{
 }
 
 .container{
-  margin: 0 10%;
+  margin: 0 5%;
+  max-width: 2500px;
 }
 
 :root{
