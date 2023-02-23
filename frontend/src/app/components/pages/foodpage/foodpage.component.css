@@ -1,0 +1,68 @@
+.flex{
+    display: flex;
+    width: 70%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.item_image{
+    width: 50%;
+    border-radius: 60px;
+}
+.itemdetails{
+    width: 50%;
+    padding: 2rem;
+    padding-right: 6rem;
+    position: relative;
+}
+.item_heading{
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+}
+.favorite{
+    position: absolute;
+    top: 2rem;
+    right: 6rem;
+    color: red;
+}
+.origins span ,.tags span {
+
+    padding: .2em .9em;
+    font-size: 12px;
+    background-color: rgb(241, 240, 240);
+    border-radius: 10px;
+    margin-right: .2rem;
+
+}
+.tags span{
+    background-color: honeydew;
+}
+.tags,.origins{
+    display: flex;
+    margin: 1rem 0;
+
+}
+.cook-time{
+    font-size: 14px;
+    margin-bottom: 1rem;
+}
+.price  span{
+    margin-left: 0.2rem;
+}
+.add-to{
+    width: 100%;
+    border-radius: 20px;
+    background-color: rgb(247, 30, 30);
+    color: white;
+    border: none;
+    font-family: 'Poppins',
+        sans-serif;
+    padding: 0.5em .75em; 
+    margin: 2rem 0 .5rem;
+}
+
+.add-to:hover{
+    opacity: .9;
+    cursor: pointer;
+}

@@ -1,10 +1,31 @@
-<div  *ngIf="Item"> 
+<div class="position" *ngIf="Item"> 
 <div class="flex" *ngFor="let item of Item">
-    <img [src]="item.imageUrl" [alt]="item.name">
+    <img class="item_image" [src]="item.imageUrl" [alt]="item.name">
     <div class="itemdetails">
-        <h3>{{item.name}}</h3>
-        <star-rating [value]="item.stars" [totalstars]="5" checkedcolor="red" uncheckedcolor="black" size="24px" [readonly]="false"
-            ></star-rating>
+        <p class="item_heading">{{item.name}}</p>
+        <star-rating [value]="item.stars" [totalstars]="5" checkedcolor="red" uncheckedcolor="black" size="14px" [readonly]="true"></star-rating>
+       <span class="favorite {{item.favorite?'':'not'}}" >❤</span>
+        <div class="product-item-footer">
+            <div class="origins">
+                <span *ngFor="let origin of item.origins">
+                    {{origin}}
+                </span>
+            </div>
+        </div>
+        <div class="tags" >
+           <div *ngFor="let tag of item.tags">
+            <span>{{tag}}</span>
+           </div>
+        </div>
+        <div class="content--innerflex">
+            <div class="cook-time">
+                <span>Time to cook about <b>{{item.cookTime}}</b>  minutes</span>
+            </div>
+            <div class="price">
+                <p>Price:<span>{{item.price | currency:'INR'}}</span></p>
+            </div>
+        </div>
+        <button class="add-to">Add To Cart</button>
     </div>
 </div>
 </div>
