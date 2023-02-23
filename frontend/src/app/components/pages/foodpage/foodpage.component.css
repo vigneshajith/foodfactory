@@ -7,7 +7,7 @@
 }
 
 .flex > *{
-    min-width: 15rem;
+    min-width: 25rem;
     max-width: 35rem;
 }
 
