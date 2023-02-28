@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,  Router } from '@angular/router';
+import { CartService } from 'src/app/services/cart.service';
 import { FoodService } from 'src/app/services/food.service';
 import { Food } from 'src/app/shared/model/food';
 
@@ -11,11 +12,15 @@ import { Food } from 'src/app/shared/model/food';
 export class FoodpageComponent {
 
   food!: Food;
-  constructor(activatedRoute:ActivatedRoute, foodService:FoodService) {
-    activatedRoute.params.subscribe(params => {
+  constructor(private activatedRoute: ActivatedRoute,private router:Router,private foodService: FoodService, private cartService: CartService) {
+    this.activatedRoute.params.subscribe(params => {
       if (params.id !== null||undefined) {
-        this.food = foodService.getFoodById(params.id)
+        this.food = this.foodService.getFoodById(params.id)
       }
     })
+  }
+  addToCart() {
+    this.cartService.addToCart(this.food)
+    this.router.navigateByUrl('/cart-page')
   }
 }

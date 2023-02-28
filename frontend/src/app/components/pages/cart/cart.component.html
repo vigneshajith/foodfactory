@@ -1,0 +1,23 @@
+<app-title title="Cart Page" margin="1.5rem 0 0 2.5rem" fontSize="1.5rem"></app-title>
+<div class="cart-container">
+    <ul>
+        <li *ngFor="let cartItem of carts.items">
+            <div>
+                <img [src]="cartItem.food.imageUrl" [alt]="cartItem.food.name">
+            </div>
+            <div>
+                <a routerLink="/food/{{cartItem.food.id}}">{{cartItem.food.name}}</a>
+            </div>
+            <div>
+                <div class="num-block skin-1">
+                    <div class="num-in">
+                        <span (click)="dec(cartItem,nspin.value)" class="minus dis"></span>
+                        <input #nspin type="text" max="20" min="1" class="in-num" [value]="cartItem.quantity"
+                            (change)="changeQuantity(cartItem,nspin.value) " readonly="" />
+                        <span (click)="inc(cartItem,nspin.value)" class="plus"></span>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

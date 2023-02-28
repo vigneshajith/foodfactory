@@ -1,0 +1,109 @@
+img{
+    width:4rem ;
+    height: 4rem;
+    border: none;
+    border-radius: 50px;
+    object-fit: cover;
+}
+
+p{
+    font-size: 1rem;
+}
+
+.btn{
+    border: none;
+    padding: 0.25em 0.75em;
+    color: white;
+    border-radius: 20px;
+}
+.removebtn{
+    background-color: red;
+}
+.removebtn:hover,.proceedbtn{
+    opacity: 0.9;
+}
+.proceedbtn{
+    background-color: rgb(49, 179, 49);
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 300px;
+}
+
+.cartItems{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+}
+
+.num-block {
+    float: left;
+    width: 100%;
+    padding: 15px 30px;
+}
+
+/* skin 1 */
+.in-num{
+    outline: none;
+}
+.skin-1 .num-in {
+    float: left;
+    width: 94px;
+}
+
+.skin-1 .num-in span {
+    display: block;
+    float: left;
+    width: 30px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.skin-1 .num-in span.dis:before {
+    background-color: #ee4040 !important;
+}
+
+.skin-1 .num-in input {
+    float: left;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #6E6F7A;
+    border-radius: 5px;
+    color: #000;
+    text-align: center;
+    padding: 0;
+}
+
+.skin-1 .num-in span.minus:before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    border-bottom: 3px solid red;
+    top: 50%;
+    left: 0;
+}
+
+.skin-1 .num-in span.plus:before,
+.skin-1 .num-in span.plus:after {
+    content: '';
+    position: absolute;
+    right: 0px;
+    width: 15px;
+    height: 2px;
+    background-color: #0dc362;
+    top: 50%;
+}
+.skin-1 .num-in span.plus:before{
+    height: 0;
+    border-bottom: 3px solid #0dc362;
+}
+.skin-1 .num-in span.plus:after {
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
