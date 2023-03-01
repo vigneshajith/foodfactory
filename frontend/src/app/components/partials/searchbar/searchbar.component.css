@@ -51,3 +51,9 @@
     width: 30px;
     height: 25px;
 }
+input:-internal-autofill-selected {
+  appearance: menulist-button;
+  background-image: none !important;
+  background-color: -internal-light-dark(rgba(7, 91, 236, 0), rgba(70, 90, 126, 0)) !important;
+  color: fieldtext !important;
+}

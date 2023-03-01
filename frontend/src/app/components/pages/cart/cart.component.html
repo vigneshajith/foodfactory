@@ -1,23 +1,44 @@
-<app-title title="Cart Page" margin="1.5rem 0 0 2.5rem" fontSize="1.5rem"></app-title>
-<div class="cart-container">
-    <ul>
-        <li *ngFor="let cartItem of carts.items">
-            <div>
-                <img [src]="cartItem.food.imageUrl" [alt]="cartItem.food.name">
-            </div>
-            <div>
-                <a routerLink="/food/{{cartItem.food.id}}">{{cartItem.food.name}}</a>
-            </div>
-            <div>
-                <div class="num-block skin-1">
-                    <div class="num-in">
-                        <span (click)="dec(cartItem,nspin.value)" class="minus dis"></span>
-                        <input #nspin type="text" max="20" min="1" class="in-num" [value]="cartItem.quantity"
-                            (change)="changeQuantity(cartItem,nspin.value) " readonly="" />
-                        <span (click)="inc(cartItem,nspin.value)" class="plus"></span>
+<div class="container">
+    <app-title title="Shopping Cart" margin="1rem 0" fontSize="1.5rem"></app-title>
+    <app-not-found [visible]="!carts || !carts.items.length" 
+    notFoundMessage="Cart Page Is Empty!"
+    resetLinkText="Go To Homepage"></app-not-found>
+    <div *ngIf="carts && carts.items.length" class="cart-container">
+        <ul>
+            <li *ngFor="let cartItem of carts.items">
+                <div>
+                    <img [src]="cartItem.food.imageUrl" [alt]="cartItem.food.name">
+                </div>
+                <div>
+                    <a routerLink="/food/{{cartItem.food.id}}">{{cartItem.food.name}}</a>
+                </div>
+                <div>
+                    <div class="num-block skin-1">
+                        <div class="num-in">
+                            <span (click)="dec(cartItem,nspin.value)" class="minus dis"></span>
+                            <input #nspin type="text" max="20" min="1" class="in-num" [value]="cartItem.quantity"
+                                readonly="" />
+                            <span (click)="inc(cartItem,nspin.value)" class="plus"></span>
+                        </div>
                     </div>
                 </div>
+                <div class="currency">
+                    {{cartItem.price | currency : 'INR'}}
+                </div>
+                <div>
+                    <button class="remove-btn btn" (click)="removeCartItem(cartItem)">Remove</button>
+                </div>
+            </li>
+        </ul>
+        <div class="checkout">
+            <div>
+                <div class="food-count">{{carts.totalCount}}</div>
+                <div class="total-price">{{carts.totalPrice | currency:'INR'}}</div>
             </div>
-        </li>
-    </ul>
+            <a routerLink="/checkout">Proceed to Checkout</a>
+        </div>
+    </div>
+    <ng-template #message>
+        <p class="message">Cart is empty</p>
+    </ng-template>
 </div>

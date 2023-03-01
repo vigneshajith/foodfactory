@@ -18,6 +18,7 @@ export class FoodpageComponent {
         this.food = this.foodService.getFoodById(params.id)
       }
     })
+    console.log(typeof this.food)
   }
   addToCart() {
     this.cartService.addToCart(this.food)

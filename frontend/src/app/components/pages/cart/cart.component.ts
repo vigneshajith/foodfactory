@@ -9,21 +9,21 @@ import { CartItem } from 'src/app/shared/model/CartsItem';
 })
 export class CartComponent {
   carts!: Cart;
+  show = false;
   constructor(private cartService: CartService) {
     this.cartService.getCartObservable().subscribe(cart => {
       this.carts = cart
+      if (cart.items.length != 0) {
+        this.show = true;
+      } else {
+        this.show = false;
+      }
       console.log(this.carts)
     })
   }
 
   removeCartItem(cartItem: CartItem) {
     this.cartService.removeFromCart(cartItem.food.id)
-  }
-
- 
-  changeQuantity(cartItem: CartItem, quantityInString: string) {
-    const quantity = parseInt(quantityInString)
-    this.cartService.changeQuantity(cartItem.food.id, quantity)
   }
  
   dec(cartItem:CartItem,num:string) {

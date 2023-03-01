@@ -1,6 +1,6 @@
 <div class="searchdiv container">
     <div class="searchbar">
-        <input #s type="text" (keyup.enter)="search(s.value)" [value]="searchTerm" id="box" placeholder="Search anything..." class="search__box">
+        <input  #s type="text" (keyup.enter)="search(s.value)" [value]="searchTerm" id="box" placeholder="Search anything..." class="search__box">
         
     <button class="searchbtn" (click)="search(s.value)">
         <svg class="searchicon" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24">
@@ -11,7 +11,3 @@
 
     </div>
 </div>
-<!-- <div>
-    <input #s type="text" (keyup.enter)="search(s.value)" [value]="searchTerm"  >
-    <button (click)="search(s.value)">Search</button>
-</div> -->

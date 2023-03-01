@@ -1,4 +1,5 @@
-<div class="flex">
+<app-not-found [visible]="!food.id"></app-not-found>
+<div class="flex" *ngIf="food.id">
     <img [src]="food.imageUrl" [alt]="food.name">
     <div class="details">
         <div class="header">
