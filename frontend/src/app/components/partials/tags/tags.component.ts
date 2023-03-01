@@ -9,10 +9,10 @@ import { Tag } from 'src/app/shared/model/top';
   styleUrls: ['./tags.component.css']
 })
 export class TagsComponent {
-  tags!:Tag[];
-  constructor(activatedRoute:ActivatedRoute,private route:Router,foods:FoodService) {
+  tags?:Tag[];
+  constructor(foodService:FoodService) {
     
-    this.tags = foods.getAllTags()
+    foodService.getAllTags().subscribe((serverFood)=> this.tags=serverFood)
   }
   
  

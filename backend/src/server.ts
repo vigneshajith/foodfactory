@@ -18,15 +18,15 @@ app.get('/api/foods/search/:search', (req, res) => {
     res.send(foods)
 })
 
-app.get('/api/tags', (req, res) => {
+app.get('/api/foods/tags', (req, res) => {
     res.send(sample_tags)
 })
-app.get('/api/foods/tags/:tags', (req, res) => {
-    const tagName = req.params.tags
-    const filter = sample_foods.find(food => food.tags?.includes(tagName))
+app.get('/api/foods/tag/:tag', (req, res) => {
+    const tagName = req.params.tag
+    const filter = sample_foods.filter(food => food.tags.includes(tagName))
     res.send(filter)
 })
-app.get('.api/foods/:id', (req, res) => {
+app.get('/api/foods/:id', (req, res) => {
     const foodId = req.params.id
     const foodById = sample_foods.find(food => food.id === foodId)
     res.send(foodById)

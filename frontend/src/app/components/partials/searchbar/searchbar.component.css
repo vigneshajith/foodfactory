@@ -18,13 +18,13 @@
 .search__box {
   float: left;
   position: relative;
-  bottom: -5px;
+  bottom: -6.5px;
   left: 15px;
   width: 0;
   height: 1.5rem;
   background: none;
   color: #f7f7f7;
-  font-size: 1.3rem;
+  font-size: 1rem;
   border-radius: 2rem;
   outline: none;
   border: none;
