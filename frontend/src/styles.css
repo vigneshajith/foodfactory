@@ -9,14 +9,14 @@ img{
   max-width: 100%;
 }
 
-.container{
+.wrapper{
   margin: 0 10%;
   max-width: 2000px;
 
 }
 
 :root{
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif; 
 
 }
 

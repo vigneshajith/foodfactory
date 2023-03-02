@@ -1,0 +1,11 @@
+
+.outer-wrapper{
+    display: flex;
+    align-items: center;
+    height: 70vh;
+}
+.details{
+    width: 18rem;
+    margin: 0 auto;
+
+}

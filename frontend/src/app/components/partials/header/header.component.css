@@ -67,7 +67,8 @@ nav .nav-ul{
 .badge{
   background-color:rgb(211, 19, 19) ;
   color: rgb(255, 255, 255);
-  padding: 0em 0.4em ;
-  margin-left: 2px;
+  font-size: small;
+  padding: 0em 0.5em ;
+  margin-left: 5px;
   border-radius: 50px;
 }

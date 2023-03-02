@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RatingModule } from 'ng-starrating';
-import { HttpClientModule} from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http'
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -34,7 +36,8 @@ import { LoginComponent } from './components/pages/login/login.component';
     BrowserModule,
     AppRoutingModule,
     RatingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
