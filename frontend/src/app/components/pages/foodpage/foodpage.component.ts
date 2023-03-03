@@ -16,6 +16,7 @@ export class FoodpageComponent {
   food!: Food;
   constructor(private activatedRoute: ActivatedRoute,private router:Router,private foodService: FoodService, private cartService: CartService) {
     this.activatedRoute.params.subscribe(params => {
+      console.log(params)
       if (params.id !== null||undefined) {
         foodService.getFoodById(params.id).subscribe((serverFood)=> this.food = serverFood)
       }
