@@ -1,0 +1,21 @@
+.input-container {
+    position: relative;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    padding-top: 0.4em;
+    margin-bottom: 0.7rem;
+}
+
+label{
+    display: inline-block;
+    margin-left: 0.3rem;
+    font-size: 1rem;
+    color: #5f5f5f;
+}
+
+.content{
+    padding: 0 0.3em;
+    height: 2.7rem;
+    display: flex;
+    align-items: center;
+}
