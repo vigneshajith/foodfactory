@@ -5,11 +5,11 @@
     </div>
     <nav>
       <ul class="nav-ul">
-        <li><a class="nav-link" routerLink="/login">Login</a></li>
-        <li class="menu-container">
+        <li *ngIf="!isAuth"><a class="nav-link" routerLink="/login">Login</a></li>
+        <li  *ngIf="isAuth" class="menu-container">
           <span class="nav-link">
             <span class="dropdown">
-              Menu 
+                  {{user.name}}
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                 <path fill="currentColor" d="m7 10l5 5l5-5z" /></svg>
             </span> 
@@ -17,7 +17,7 @@
           <div class="menu">
             <a class="nav-link" routerLink="/profile">profile</a>
             <a class="nav-link" routerLink="/orders">Orders</a>
-            <a class="nav-link" routerLink="/logout">Logout</a>
+            <a class="nav-link" routerLink="/logout" (click)="logOut()">Logout</a>
           </div>
         </li>
         <li>

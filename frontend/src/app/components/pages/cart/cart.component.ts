@@ -13,12 +13,6 @@ export class CartComponent {
   constructor(private cartService: CartService) {
     this.cartService.getCartObservable().subscribe(cart => {
       this.carts = cart
-      if (cart.items.length != 0) {
-        this.show = true;
-      } else {
-        this.show = false;
-      }
-      console.log(this.carts)
     })
   }
 

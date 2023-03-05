@@ -89,9 +89,16 @@ export const sample_users: any[] = [
   },
   {
     name: "Jane Doe",
-    email: "jane@gamil.com",
+    email: "jane@gmail.com",
     password: "12345",
     address: "Shanghai",
     isAdmin: false,
+  },
+  {
+    name: "vignesh",
+    email: "ajithvignesh@gmail.com",
+    password: "ajvig",
+    address: "south chennai",
+    isAdmin: true,
   }
 ]

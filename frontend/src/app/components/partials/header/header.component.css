@@ -27,6 +27,7 @@ nav .nav-ul{
 }
 .nav-link{
   padding: 0.5em 0.75em;
+  display: block;
 }
 .nav-link:hover{
   border-radius: 50px;
@@ -37,24 +38,34 @@ nav .nav-ul{
   display: flex;
   flex-direction: column;
   position: relative;
+  z-index: 4;
 }
 
 .menu-container:hover .menu{
- display: block;
+  display: block;
+  visibility: visible;
+  width: inherit;
+  transform: translateY(0px);
 }
+
+
+
 .menu a{
   display: block;
+  width: 100%;
+  min-width: 5rem;
 }
 .menu{
-  display: none;
+  transition: transform 2s ease ;  
+  /* display: n; */
+  visibility: hidden;
   position: absolute;
-  padding: 0.6em;
-  top: 40px;
-  left: -2px;
   background-color: rgb(231, 227, 227);
   border-radius: 20px;
-  z-index: 2;
-
+  top: 40.9px;
+  right: 0px;
+  z-index: -1;
+  transform: translateY(-10px);
 }
 .dropdown{
   display: flex;
