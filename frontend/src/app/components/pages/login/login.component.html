@@ -4,9 +4,9 @@
         <form [formGroup]="loginForm" (ngSubmit)="submit()">
             <text-input label="Email" type="email" [showError]="isSubmitted" [control]="fc.email"></text-input>
             <text-input label="Password" type="password" [showError]="isSubmitted" [control]="fc.password"></text-input>
-            <div class="button">
-                <button type="submit">Login</button>
-            </div>
+
+            <default-button type="submit" text="login" bgColor="red" ></default-button>
+
         </form>
     </div>
 </div>

@@ -21,7 +21,7 @@ export class UserService {
     return this.http.post<User>(USER_LOGIN_URL, userLogin).pipe(
       tap({
         next: (user) => {
-          this.serUseToLocalStorage(user)
+          this.setUserToLocalStorage(user)
           this.userSubject.next(user);
           this.toastrService.success(
             `Welcome to FoodFactory ${user.name}!`,
@@ -40,7 +40,7 @@ export class UserService {
     localStorage.removeItem(USER_KEY);
     window.location.reload();
   }
-  private serUseToLocalStorage(user: User) {
+  private setUserToLocalStorage(user: User) {
     localStorage.setItem(USER_KEY,JSON.stringify(user))
   }
   private getUserFromLocalStorage(): User{

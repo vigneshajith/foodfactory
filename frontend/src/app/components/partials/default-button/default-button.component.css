@@ -1,0 +1,17 @@
+button{
+    border: none;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 1rem auto;
+    height: 2rem;
+}
+.input-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+button:hover{
+    opacity: .9;
+    cursor: pointer;
+}

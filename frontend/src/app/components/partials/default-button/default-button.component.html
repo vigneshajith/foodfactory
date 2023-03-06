@@ -1,0 +1,15 @@
+<div class="input-container">
+    <button
+    [ngStyle]="{
+        color:color,
+        'background-color':bgColor,
+        'font-size.rem':fontSize,
+        'width':width
+    }"    
+    [type]=type
+    (click)="OnClick.emit()"
+    
+    >
+    {{text}}
+    </button>
+</div>
