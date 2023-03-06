@@ -1,43 +1,36 @@
+import dotenv from 'dotenv'
+dotenv.config()
+
 import express from 'express';
 import cors from 'cors';
 import jwt from 'jsonwebtoken'
 import bodyparser from 'body-parser'
-import { sample_foods, sample_tags, sample_users } from './data';
 
+import {sample_users } from './data';
+import foodRouter from './routers/food.router'
+
+
+import { dbConnect } from './configs/database.config';
+dbConnect();
 
 const app = express();
-app.use(bodyparser.urlencoded({extended:true}))
+
+app.use("/api/foods", foodRouter)
+
+app.use(bodyparser.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(cors({
     credentials: true,
     origin: ["http://localhost:4200"]
 }))
 
-app.get('/api/foods', (req, res) => {
-    res.send(sample_foods)
-})
-app.get('/api/foods/search/:search', (req, res) => {
-    const searchTerm = req.params.search;
-    const foods = sample_foods.filter(food => food.name.toLowerCase().includes(searchTerm.toLocaleLowerCase()));
-    res.send(foods)
-})
 
-app.get('/api/foods/tags', (req, res) => {
-    res.send(sample_tags)
-})
-app.get('/api/foods/tag/:tag', (req, res) => {
-    const tagName = req.params.tag
-    const filter = sample_foods.filter(food => food.tags.includes(tagName))
-    res.send(filter)
-})
-app.get('/api/foods/:id', (req, res) => {
-    const foodId = req.params.id
-    const foodById = sample_foods.find(food => food.id === foodId)
-    res.send(foodById)
-})
+
+
 
 app.post('/api/users/login', (req, res) => {
     const { email, password } = req.body;
+
     const user = sample_users.find(user => user.email == email && user.password == password);
     if (user) {
         res.send(generateTokenResponse(user))

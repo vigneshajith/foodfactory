@@ -18,9 +18,6 @@ export class FoodpageComponent {
     foodService: FoodService, private cartService: CartService) {
     
     this.activatedRoute.params.subscribe(params => {
-
-      console.log(params)
-
       if (params.id !== null || undefined) {
         foodService.getFoodById(params.id).subscribe((serverFood) => this.food = serverFood)
       }

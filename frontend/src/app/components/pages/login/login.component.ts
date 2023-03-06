@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute,  Router } from '@angular/router';
-import {  Observable } from 'rxjs';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -34,7 +33,8 @@ export class LoginComponent implements OnInit {
 
 
        this.userService.login({
-         email: this.fc.email.value, password: this.fc.password.value
+         email: this.fc.email.value, password: this.fc.password.value,
+        
        })
          .subscribe(() => {
       this.router.navigateByUrl(this.returnUrl);
