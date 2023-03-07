@@ -9,20 +9,21 @@ import bodyparser from 'body-parser'
 import {sample_users } from './data';
 import foodRouter from './routers/food.router'
 
-
 import { dbConnect } from './configs/database.config';
 dbConnect();
 
 const app = express();
-
-app.use("/api/foods", foodRouter)
-
 app.use(bodyparser.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(cors({
-    credentials: true,
-    origin: ["http://localhost:4200"]
+    
+        "origin": "*",
+        "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+        "preflightContinue": false,
+        "optionsSuccessStatus": 204
+    
 }))
+app.use("/api/foods", foodRouter)
 
 
 

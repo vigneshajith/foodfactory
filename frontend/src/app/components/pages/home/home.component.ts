@@ -23,7 +23,11 @@ export class HomeComponent implements OnInit {
       else {
         foodsObservable = this.foodService.getAll()
       }
-      foodsObservable.subscribe((servedFoods)=> this.foods = servedFoods)
+      foodsObservable.subscribe((servedFoods) => {
+        console.log(servedFoods)
+       return this.foods = servedFoods
+
+      })
     })
    }
   ngOnInit(): void {

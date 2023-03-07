@@ -1,23 +1,8 @@
 import { Router } from "express";
 import { sample_foods, sample_tags } from "../data";
-import asynHandler from 'express-async-handler'
-import { FoodModel } from "../models/food.model";
-
 const router = Router();
 
-router.get('/seed', asynHandler(
-    async (req:any, res:any) => {
-        const foodsCount = await FoodModel.countDocuments()
-        if (foodsCount > 0) {
-            res.send("seed is already done !")
-            return
-        }
-        await FoodModel.create(sample_foods)
-        res.send("Seed is Done!")
-    }
-
-))
-router.get('', (req, res) => {
+router.get('/', (req, res) => {  
     res.send(sample_foods)
 })
 router.get('/search/:search', (req, res) => {
