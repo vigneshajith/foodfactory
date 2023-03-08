@@ -6,15 +6,18 @@ import cors from 'cors';
 import jwt from 'jsonwebtoken'
 import bodyparser from 'body-parser'
 
-import {sample_users } from './data';
+import {sample_tags, sample_users } from './data';
 import foodRouter from './routers/food.router'
 
+import asyncHandler from "express-async-handler";
+import { UserModel } from './models/user.model';
 import { dbConnect } from './configs/database.config';
 dbConnect();
 
 const app = express();
 app.use(bodyparser.urlencoded({ extended: true }))
 app.use(express.json())
+
 app.use(cors({
     
         "origin": "*",
@@ -24,11 +27,16 @@ app.use(cors({
     
 }))
 app.use("/api/foods", foodRouter)
-
-
-
-
-
+app.get('/api/users/seed', asyncHandler(
+    async (req, res: any) => {
+        const UserCount = await UserModel.countDocuments()
+        if (UserCount > 0) {
+            res.send("Seed was already done")
+        } else {
+            await UserModel.create(sample_tags)
+            res.send("Seed is done!")
+        }
+    }))
 app.post('/api/users/login', (req, res) => {
     const { email, password } = req.body;
 
@@ -50,3 +58,5 @@ const PORT = 5000;
 app.listen(PORT, () => {
     console.log("Website served on http://localhost:" + PORT);
 })
+
+
