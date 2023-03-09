@@ -6,7 +6,7 @@ export interface User {
     password:string
     name: string
     address: string
-    isAdmid:boolean
+    isAdmin:boolean
 }
 
 export const UserSchema = new Schema<User>({
@@ -14,7 +14,7 @@ export const UserSchema = new Schema<User>({
     email:{type:String,require:true,unique:true},
     address:{type:String,require:true},
     password:{type:String,require:true},
-    isAdmid:{type:Boolean,default:false},
+    isAdmin:{type:Boolean,require:true},
 }, {
     toJSON: {
         virtuals: true
@@ -25,4 +25,4 @@ export const UserSchema = new Schema<User>({
     timestamps:true
 })
 
-export const UserModel = model<User>('Users',UserSchema)
+export const UserModel = model<User>('user',UserSchema)

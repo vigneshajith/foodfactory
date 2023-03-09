@@ -19,7 +19,6 @@ router.get('/seed', asyncHandler(
 router.get('/', asyncHandler(
     async (req, res: any) => {
         const food = await FoodModel.find()
-        console.log(food)
     res.send(food)
     }))
 
@@ -30,23 +29,44 @@ router.get('/search/:search', asyncHandler(async (req:any, res:any) => {
 }))
 
 router.get('/tags', asyncHandler(async (req: any, res: any) => {
-    const tags = FoodModel.aggregate([
+    const tags = await FoodModel.aggregate([
         {
             $unwind : '$tags'
-        }])
-
-    res.send(sample_tags)
+        }, {
+            $group: {
+                _id: '$tags',
+                count:{$sum:1}
+            }
+        },
+        {
+            $project: {
+                _id: 0,
+                name: '$_id',
+                count:'$count'
+            }
+        }
+    ]).sort({ count: -1 })
+    
+    const all = {
+        name: 'All',
+        count: await FoodModel.countDocuments()
+    }
+    tags.unshift(all);
+    res.send(tags)
 }))
-router.get('/tag/:tag', (req, res) => {
-    const tagName = req.params.tag
-    const filter = sample_foods.filter(food => food.tags.includes(tagName))
-    res.send(filter)
-})
-router.get('/:id', (req, res) => {
-    const foodId = req.params.id
-    const foodById = sample_foods.find(food => food.id === foodId)
-    res.send(foodById)
-})
+router.get('/tag/:tag', asyncHandler(
+    async (req:any, res:any) => {
+    const foods = await FoodModel.find({tags:req.params.tag})
+    res.send(foods)
+}))
+router.get('/:id', asyncHandler(
+    async (req: any, res: any) => {
+        const foods = await FoodModel.findById(req.params.id)
+    res.send(foods)
+    }
+))
+
+
 
 
 
