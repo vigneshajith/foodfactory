@@ -38,7 +38,7 @@ import { DefaultButtonComponent } from './components/partials/default-button/def
     InputComponentComponent,
     InputValidationComponent,
     TextInputComponent,
-    DefaultButtonComponent
+    DefaultButtonComponent,
   ],
   imports: [
     BrowserModule,

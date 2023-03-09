@@ -3,10 +3,9 @@
         <app-title title="Login" margin="0 0 1rem 0" fontSize="1.3rem"></app-title>
         <form [formGroup]="loginForm" (ngSubmit)="submit()">
             <text-input label="Email" type="email" [showError]="isSubmitted" [control]="fc.email"></text-input>
-            <text-input label="Password" type="password" [showError]="isSubmitted" [control]="fc.password"></text-input>
-
+             <text-input label="Password" type="password" [showError]="isSubmitted" [control]="fc.password"></text-input>
             <default-button type="submit" text="login" bgColor="red" ></default-button>
-
         </form>
+        <p class="link-text">New user? <a class="register-link" routerLink="/register">Register Here</a> </p>
     </div>
 </div>

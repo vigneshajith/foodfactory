@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'tag/:tag', component: HomeComponent },
   { path: 'food/:id', component: FoodpageComponent },
   { path: 'cart-page', component: CartComponent },
-  { path: 'login',component:LoginComponent}
+  { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({
