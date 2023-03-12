@@ -14,6 +14,7 @@ app.use(bodyparser.urlencoded({ extended: true }))
 app.use(express.json())
 
 app.use(cors({
+    credentials: true,
     "origin": "http://localhost:4200",
 }))
 

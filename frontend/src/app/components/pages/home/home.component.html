@@ -1,6 +1,6 @@
 <app-searchbar></app-searchbar>
 <app-tags></app-tags>
-<app-not-found [visible]="!foods || !foods.length"
+<app-not-found [visible]="!foods || !foods.length" [notFoundMessage]="errorMessage"
 resetLinkText="Reset Search"
 ></app-not-found> 
 <ul class="wrapper">
