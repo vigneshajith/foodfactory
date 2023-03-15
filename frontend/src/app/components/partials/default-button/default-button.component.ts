@@ -11,6 +11,8 @@ export class DefaultButtonComponent {
   @Input() color = 'white';
   @Input() type: 'button' | 'submit'  = 'submit';
   @Input() fontSize = 1;
-  @Input() width = "50%"
+  @Input() width = " "
+  @Input() padding = ".5em .75em"
+  @Input() margin = ".5rem auto"
   @Output() OnClick = new EventEmitter();
 }

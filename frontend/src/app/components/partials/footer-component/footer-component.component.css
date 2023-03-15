@@ -1,0 +1,47 @@
+.footer {
+    margin-top: 1.5rem;
+  padding-top: 40px;
+  padding-bottom: 30px;
+  background-color: rgb(230, 227, 227);
+}
+.linkblock {
+  margin: 0 20%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+
+}
+.fh {
+  text-transform: uppercase;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  min-width: 150px;
+}
+.svgicons {
+  text-align: center;
+}
+.svgicons ul {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  list-style: none;
+  padding: 0;
+  margin: 30px;
+}
+.svgicons li {
+  display: block;
+  margin-right: 30px;
+}
+.svgicons li:last-child {
+  margin-right: 0;
+}
+svg {
+  fill: rgb(8, 8, 8);
+  display: block;
+}
+.copyright {
+  color: rgb(182, 179, 179);
+}

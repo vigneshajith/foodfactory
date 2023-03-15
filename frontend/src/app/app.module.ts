@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RatingModule } from 'ng-starrating';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
-
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/partials/header/header.component';
 import { HomeComponent } from './components/pages/home/home.component';
@@ -22,6 +22,11 @@ import { InputComponentComponent } from './components/partials/input-component/i
 import { InputValidationComponent } from './components/partials/input-validation/input-validation.component';
 import { TextInputComponent } from './components/partials/text-input/text-input.component';
 import { DefaultButtonComponent } from './components/partials/default-button/default-button.component';
+import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
+import { FooterComponentComponent } from './components/partials/footer-component/footer-component.component';
+import { LoadingComponent } from './components/partials/loading/loading.component';
+import { LoadingInterceptor } from './shared/interceptor/loading.interceptor';
+import { CheckoutpageComponent } from './components/pages/checkoutpage/checkoutpage.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +44,10 @@ import { DefaultButtonComponent } from './components/partials/default-button/def
     InputValidationComponent,
     TextInputComponent,
     DefaultButtonComponent,
+    RegisterPageComponent,
+    FooterComponentComponent,
+    LoadingComponent,
+    CheckoutpageComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +62,9 @@ import { DefaultButtonComponent } from './components/partials/default-button/def
       newestOnTop:false
     })
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS,useClass:LoadingInterceptor,multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

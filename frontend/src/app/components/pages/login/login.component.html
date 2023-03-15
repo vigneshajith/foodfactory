@@ -6,6 +6,6 @@
              <text-input label="Password" type="password" [showError]="isSubmitted" [control]="fc.password"></text-input>
             <default-button type="submit" text="login" bgColor="red" ></default-button>
         </form>
-        <p class="link-text">New user? <a class="register-link" routerLink="/register">Register Here</a> </p>
+        <p class="link-text">New user? <a class="register-link" routerLink="/register" [queryParams]="{returnUrl:returnUrl}">Register Here</a> </p>
     </div>
 </div>

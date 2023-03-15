@@ -2,16 +2,19 @@
 .outer-wrapper{
     display: flex;
     align-items: center;
-    height: 70vh;
 }
 .details{
     width: 28rem;
-    margin: 0 auto;
+    margin: 5rem auto 0;
 
 }
 
 .register-link{
     color: grey;
+}
+
+.register-link:hover {
+    color: rgb(184, 180, 180);
 }
 
 .link-text{

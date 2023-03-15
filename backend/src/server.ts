@@ -21,6 +21,8 @@ app.use(cors({
 app.use("/api/foods", foodRouter)
 app.use("/api/users", userRouter)
 
+
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log("Website served on http://localhost:" + PORT);

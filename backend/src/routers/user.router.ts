@@ -21,9 +21,9 @@ router.get('/seed', asyncHandler(
 router.post("/login", asyncHandler(
    async (req:any, res:any)=> {
         const { email, password } = req.body;
-
-        const user = await UserModel.findOne({ email, password })
-        if (user) {
+        
+        const user = await UserModel.findOne({ email })
+        if (user && await bcrypt.compare(password,user.password)) {
             res.send(generateTokenResponse(user))
         } else {
             res.status(BAD_REQ).send("User name or password is not valid"!)
@@ -31,6 +31,14 @@ router.post("/login", asyncHandler(
     }
 ))
 
+router.get("/allUser", asyncHandler(async (req: any, res: any) => {
+    // await UserModel.deleteOne({ email: "ajithajith@gmail.com" }).then(
+    //     () => { console.log("deleted") },
+    //     (err)=>{console.log(err)}
+    // )
+    const allUser = await UserModel.find()
+    res.send(allUser)
+}))
 router.post("/register", asyncHandler(
 
     async (req: any, res: any) => {

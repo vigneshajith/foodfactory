@@ -1,0 +1,15 @@
+<div class="wrapper outer-wrapper">
+    <div class="details">
+        <app-title title="Register" margin="0 0 1rem 0" fontSize="1.3rem" ></app-title>
+        <form [formGroup]="RegisterFrom" (ngSubmit)="submit()">
+            <text-input label="Name" [showError]="isSubmited"  [control]="fc.name"  ></text-input>
+            <text-input label="Email" type="email" [showError]="isSubmited"  [control]="fc.email"  ></text-input>
+            <text-input label="Password" type="password" [showError]="isSubmited"  [control]="fc.password"  ></text-input>
+            <text-input label="Confirm Password" type="password" [showError]="isSubmited"  [control]="fc.confirmPassword"  ></text-input>
+            <text-input label="Address"  [showError]="isSubmited"  [control]="fc.address"></text-input>
+
+            <default-button text="Register" bgColor="red"></default-button>
+        </form>
+        <p class="link-text">Already a User ?<a class="login-link" routerLink="/login" [queryParams]="{returnUrl:returnUrl}">Login Here</a></p>
+    </div>
+</div>

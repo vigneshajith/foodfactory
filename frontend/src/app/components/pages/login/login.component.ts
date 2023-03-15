@@ -11,7 +11,8 @@ import { UserService } from 'src/app/services/user.service';
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   isSubmitted = false;
-  returnUrl:any;
+   
+  returnUrl = "";
   constructor(private formBilder: FormBuilder, private userService: UserService,
   private activatedRoute:ActivatedRoute,private router:Router
   ) { }

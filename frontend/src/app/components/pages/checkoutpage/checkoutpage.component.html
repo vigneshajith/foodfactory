@@ -1,0 +1,28 @@
+<div class="wrapper">
+<div class="inner-wrapper">
+        <div class="ordercontainrer">
+            <h3>Order Form</h3>
+            <!-- <text-input label="Name"></text-input>
+                <text-input label="Address"></text-input> -->
+            <div class="order-items">
+                <h4 class="order-title">Order Items</h4>
+                <ul *ngFor="let item of cart.items">
+                    <li>
+                        <img [src]="item.food.imageUrl" [alt]="item.food.name">
+                        <p>{{item.food.name}}</p>
+                        <p>{{item.food.price | currency:"INR"}}</p>
+                        <p>{{item.quantity}}</p>
+                        <p>{{item.food.price| currency:"INR"}}</p>
+                    </li>
+                </ul>
+                <div class="totalprice">
+                    <span>{{cart.totalPrice| currency:"INR"}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="map">
+            <h3>Choose Your Address On Map</h3>
+        </div>
+</div>
+    <default-button padding=".5em 8em " bgColor="red" text="Go To Payment"></default-button>
+</div>
