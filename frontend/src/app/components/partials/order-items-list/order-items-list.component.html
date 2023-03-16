@@ -1,0 +1,15 @@
+<div class="order-items">
+    <h4 class="order-title">Order Items</h4>
+    <ul *ngFor="let item of order.items">
+        <li>
+            <img [src]="item.food.imageUrl" [alt]="item.food.name">
+            <p>{{item.food.name}}</p>
+            <p>{{item.food.price | currency:"INR"}}</p>
+            <p>{{item.quantity}}</p>
+            <p>{{item.price| currency:"INR"}}</p>
+        </li>
+    </ul>
+    <div class="totalprice">
+        <span>{{order.totalPrice| currency:"INR"}}</span>
+    </div>
+</div>

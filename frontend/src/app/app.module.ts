@@ -27,6 +27,7 @@ import { FooterComponentComponent } from './components/partials/footer-component
 import { LoadingComponent } from './components/partials/loading/loading.component';
 import { LoadingInterceptor } from './shared/interceptor/loading.interceptor';
 import { CheckoutpageComponent } from './components/pages/checkoutpage/checkoutpage.component';
+import { OrderItemsListComponent } from './components/partials/order-items-list/order-items-list.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { CheckoutpageComponent } from './components/pages/checkoutpage/checkoutp
     FooterComponentComponent,
     LoadingComponent,
     CheckoutpageComponent,
+    OrderItemsListComponent,
   ],
   imports: [
     BrowserModule,

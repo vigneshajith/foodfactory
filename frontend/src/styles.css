@@ -17,7 +17,7 @@ img{
 
 :root{
   font-family: 'Poppins', sans-serif; 
-
+  font-size: 10px;
 }
 
 ul{
@@ -28,3 +28,8 @@ a{
   color: inherit;
 }
 
+@media (min-width:500px) {
+  :root{
+    font-size: 16px;
+  }
+}

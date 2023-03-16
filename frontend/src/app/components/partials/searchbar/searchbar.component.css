@@ -1,15 +1,15 @@
-
-.searchdiv{
-    height: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    margin: 2rem auto;
+.searchdiv {
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 2rem auto;
 
 }
+
 .searchbar {
-  width: 280px;
+  width: 230px;
   background-color: #1e272e;
   border-radius: 4rem;
 }
@@ -17,7 +17,7 @@
 .search__box {
   float: left;
   position: relative;
-  bottom: -6.5px;
+  bottom: -3.5px;
   left: 15px;
   width: 0;
   height: 1.5rem;
@@ -35,24 +35,91 @@
 
 
 
-.searchbar:hover > .search__box {
-  width: 80%;
-  padding: 0 1rem;
+.searchbar:hover>.search__box {
+  width: 70%;
+  padding: 0 .2rem;
 }
-.searchbtn{
-    background: none;
-    border: none;
+
+.searchbtn {
+  background: none;
+  border: none;
 }
-.searchicon{
-    margin-top: 7px;
-    margin-left: 10px ;
-    fill: white;
-    width: 30px;
-    height: 25px;
+
+.searchicon {
+  margin-top: 7px;
+  margin-left: 10px;
+  fill: white;
+  width: 25px;
+  height: 19px;
 }
+
 input:-internal-autofill-selected {
   appearance: menulist-button;
   background-image: none !important;
   background-color: -internal-light-dark(rgba(7, 91, 236, 0), rgba(70, 90, 126, 0)) !important;
   color: fieldtext !important;
+}
+
+@media (min-width:650px) {
+
+  .searchdiv {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 2rem auto;
+  }
+
+  .searchbar {
+    width: 280px;
+    background-color: #1e272e;
+    border-radius: 4rem;
+  }
+
+  .search__box {
+    float: left;
+    position: relative;
+    bottom: -6.5px;
+    left: 15px;
+    width: 0;
+    height: 1.5rem;
+    background: none;
+    color: #f7f7f7;
+    font-size: 1rem;
+    border-radius: 2rem;
+    outline: none;
+    border: none;
+    opacity: 1;
+    transition: all .75s ease-in;
+    cursor: pointer;
+
+  }
+
+
+
+  .searchbar:hover>.search__box {
+    width: 80%;
+    padding: 0 1rem;
+  }
+
+  .searchbtn {
+    background: none;
+    border: none;
+  }
+
+  .searchicon {
+    margin-top: 7px;
+    margin-left: 10px;
+    fill: white;
+    width: 30px;
+    height: 25px;
+  }
+
+  input:-internal-autofill-selected {
+    appearance: menulist-button;
+    background-image: none !important;
+    background-color: -internal-light-dark(rgba(7, 91, 236, 0), rgba(70, 90, 126, 0)) !important;
+    color: fieldtext !important;
+  }
 }

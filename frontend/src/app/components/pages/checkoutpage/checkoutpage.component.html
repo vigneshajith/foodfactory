@@ -1,28 +1,23 @@
 <div class="wrapper">
-<div class="inner-wrapper">
-        <div class="ordercontainrer">
-            <h3>Order Form</h3>
-            <!-- <text-input label="Name"></text-input>
-                <text-input label="Address"></text-input> -->
-            <div class="order-items">
-                <h4 class="order-title">Order Items</h4>
-                <ul *ngFor="let item of cart.items">
-                    <li>
-                        <img [src]="item.food.imageUrl" [alt]="item.food.name">
-                        <p>{{item.food.name}}</p>
-                        <p>{{item.food.price | currency:"INR"}}</p>
-                        <p>{{item.quantity}}</p>
-                        <p>{{item.food.price| currency:"INR"}}</p>
-                    </li>
-                </ul>
-                <div class="totalprice">
-                    <span>{{cart.totalPrice| currency:"INR"}}</span>
-                </div>
+        <div class="inner-wrapper">
+            <div class="ordercontainrer">
+                <app-title title="Order Form" fontSize="1.2rem" margin=" 0 auto 1rem "></app-title>
+                <form [formGroup]="checkoutForm">
+                    <text-input label="Name" [control]="fc.name"></text-input>
+                    <text-input label="Address" [control]="fc.address"></text-input>
+                </form>
+                <order-items-list [order]="order"></order-items-list>
+            </div>
+            <div class="map">
+                <app-title title="Choose Your Address On Map" fontSize="1.2rem" margin=" 0 auto 1rem "></app-title>
+               <div class="iframe">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.147423410918!2d76.8979890226279!3d8.581820878487967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05bfa0e0dd588d%3A0x85bf3c1d414c9b8b!2sFood%20Factory!5e0!3m2!1sen!2sin!4v1678879690827!5m2!1sen!2sin"
+                    style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+               </div>
             </div>
         </div>
-        <div class="map">
-            <h3>Choose Your Address On Map</h3>
+        <div>
+           <default-button padding=".5em .75em" width="50%" margin="2rem" bgColor="red" text="Go To Payment"></default-button>
         </div>
-</div>
-    <default-button padding=".5em 8em " bgColor="red" text="Go To Payment"></default-button>
 </div>
