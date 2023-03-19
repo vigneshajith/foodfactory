@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/services/cart.service';
 import { UserService } from 'src/app/services/user.service';
-import { Cart } from 'src/app/shared/model/Cart';
 import { Order } from 'src/app/shared/model/order';
 
 @Component({
@@ -14,9 +14,9 @@ import { Order } from 'src/app/shared/model/order';
 export class CheckoutpageComponent implements OnInit {
   order: Order = new Order();
   checkoutForm!:FormGroup
-  
+  isSubmitted=false
   constructor(private cartService: CartService, private fromBuilder: FormBuilder,
-    private userService: UserService, private toastrService: ToastrService) {
+    private userService: UserService, private toastrService: ToastrService,private router:Router) {
     
     const cart = this.cartService.getCart()
     this.order.items = cart.items

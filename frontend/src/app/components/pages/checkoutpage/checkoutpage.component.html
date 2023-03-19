@@ -3,8 +3,8 @@
             <div class="ordercontainrer">
                 <app-title title="Order Form" fontSize="1.2rem" margin=" 0 auto 1rem "></app-title>
                 <form [formGroup]="checkoutForm">
-                    <text-input label="Name" [control]="fc.name"></text-input>
-                    <text-input label="Address" [control]="fc.address"></text-input>
+                    <text-input label="Name" [control]="fc.name" [showError]="isSubmitted" ></text-input>
+                    <text-input label="Address" [showError]="isSubmitted" [control]="fc.address" ></text-input>
                 </form>
                 <order-items-list [order]="order"></order-items-list>
             </div>
@@ -18,6 +18,6 @@
             </div>
         </div>
         <div>
-           <default-button padding=".5em .75em" width="50%" margin="2rem" bgColor="red" text="Go To Payment"></default-button>
+           <default-button (click)="createOrder()" padding=".5em .75em" width="50%" margin="2rem" bgColor="red" text="Go To Payment"></default-button>
         </div>
 </div>
