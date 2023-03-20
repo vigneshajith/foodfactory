@@ -5,7 +5,7 @@ input{
     border-bottom: 0 solid grey;
     transition: border-bottom 0.15s ease-out;
     background-color: white;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     outline: none;
 }
 
