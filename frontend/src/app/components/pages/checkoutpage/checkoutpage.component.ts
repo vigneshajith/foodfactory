@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/services/cart.service';
+import { OrderService } from 'src/app/services/order.service';
 import { UserService } from 'src/app/services/user.service';
 import { Order } from 'src/app/shared/model/order';
 
@@ -16,7 +17,8 @@ export class CheckoutpageComponent implements OnInit {
   checkoutForm!:FormGroup
   isSubmitted=false
   constructor(private cartService: CartService, private fromBuilder: FormBuilder,
-    private userService: UserService, private toastrService: ToastrService,private router:Router) {
+    private userService: UserService, private toastrService: ToastrService, private router: Router,
+    private orderService:OrderService) {
     
     const cart = this.cartService.getCart()
     this.order.items = cart.items
@@ -41,14 +43,23 @@ export class CheckoutpageComponent implements OnInit {
       this.toastrService.warning('Please fill the inputs','Invalid Inputs')
       return;
     }
+
+    if (!this.order.addressLatLng) {
+      this.toastrService.warning("Please select your location on the map", 'Location');
+      return;
+    }
     this.order.name = this.fc.name.value;
     this.order.address = this.fc.address.value;
 
-    console.log(this.order)
+    this.orderService.create(this.order).subscribe({
+      next: () => {
+        this.router.navigateByUrl('/payment')
+      },
+      error: (errorResponse) => {
+        console.log(errorResponse.error)
+        this.toastrService.error(errorResponse,'Cart')
+      }
+    })
   }
-
-
-
-
 
 }

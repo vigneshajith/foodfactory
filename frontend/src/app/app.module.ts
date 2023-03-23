@@ -4,7 +4,10 @@ import { RatingModule } from 'ng-starrating';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoadingComponent } from './components/partials/loading/loading.component';
+import { AuthInterceptor } from './auth/guards/auth.interceptor';
+
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -24,11 +27,13 @@ import { TextInputComponent } from './components/partials/text-input/text-input.
 import { DefaultButtonComponent } from './components/partials/default-button/default-button.component';
 import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
 import { FooterComponentComponent } from './components/partials/footer-component/footer-component.component';
-import { LoadingComponent } from './components/partials/loading/loading.component';
 import { LoadingInterceptor } from './shared/interceptor/loading.interceptor';
 import { CheckoutpageComponent } from './components/pages/checkoutpage/checkoutpage.component';
 import { OrderItemsListComponent } from './components/partials/order-items-list/order-items-list.component';
 import { MapComponent } from './components/partials/map/map.component';
+import { PaymentComponent } from './components/pages/payment/payment.component';
+import { PaypalButtonComponent } from './components/partials/paypal-button/paypal-button.component';
+import { OrderTrackPageComponent } from './components/pages/order-track-page/order-track-page.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +57,9 @@ import { MapComponent } from './components/partials/map/map.component';
     CheckoutpageComponent,
     OrderItemsListComponent,
     MapComponent,
+    PaymentComponent,
+    PaypalButtonComponent,
+    OrderTrackPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +75,8 @@ import { MapComponent } from './components/partials/map/map.component';
     })
   ],
   providers: [
-    {provide:HTTP_INTERCEPTORS,useClass:LoadingInterceptor,multi:true}
+    {provide:HTTP_INTERCEPTORS,useClass:LoadingInterceptor,multi:true},
+    {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}
   ],
   bootstrap: [AppComponent]
 })

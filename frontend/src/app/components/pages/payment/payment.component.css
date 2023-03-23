@@ -1,7 +1,30 @@
+ h3 {
+     font-size: 1.4rem;
+     flex-basis: 5rem;
+ }
 
-
+ .button-container{
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+ }
+ .buttons{
+    margin:1.6rem;
+    width: 36rem;
+ }
+ .summary > div{
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+ }
+ .summary span{
+    font-size: 1rem;
+ }
 
 @media (min-width:500px) {
+    h3 {
+            font-size: 1.1rem;
+        }
     .inner-wrapper {
         display: flex;
         gap: 1rem;
@@ -23,5 +46,5 @@
         height: 100%;
         width: 100%;
     }
-   
+
 }
